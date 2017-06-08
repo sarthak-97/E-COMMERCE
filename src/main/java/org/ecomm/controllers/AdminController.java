@@ -1,9 +1,12 @@
 package org.ecomm.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.ecomm.models.AdminDet;
 import org.ecomm.models.BuyerDet;
+import org.ecomm.models.SellerDet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +33,7 @@ public class AdminController {
 	private SessionFactory sessionFactory;
 	private BuyerDet buyerdet;
 	private AdminDet admindet;
+	private SellerDet sellerdet;
 	
 	
 	/**
@@ -74,5 +78,30 @@ public class AdminController {
 		session.close();
 		return model;
 	}
+	
+	/**
+	 * controller to view all the seller 
+	 * by admin for crud operations
+	 * @param httpSession
+	 * @return
+	 */
+	
+	@RequestMapping(value = "/viewallsellers", method = RequestMethod.GET)
+	public ModelAndView ans(HttpSession httpSession) {
+		Session session = sessionFactory.openSession();
+		ModelAndView model=new ModelAndView("adminpannel");
+		
+		
+		
+		
+		List<SellerDet> seller = session.createCriteria(SellerDet.class).list();
+		
+		model.addObject("seller",seller);
+		model.addObject("adminname",(String)httpSession.getAttribute("SESSION_name"));
+		
+		return model;
+	}
+	
+	
 	
 }
