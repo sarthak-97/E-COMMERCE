@@ -102,6 +102,12 @@ public class AdminController {
 		return model;
 	}
 	
+	/**
+	 * this controller is for deleting the seller from data base
+	 * @param httpSession
+	 * @param selleremailid
+	 * @return
+	 */
 	@RequestMapping(value = "/delseller", method = RequestMethod.GET)
 	public ModelAndView DelSeller(HttpSession httpSession, @RequestParam("id") String selleremailid) {
 		Session session = sessionFactory.openSession();
