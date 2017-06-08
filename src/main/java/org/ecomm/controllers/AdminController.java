@@ -87,7 +87,7 @@ public class AdminController {
 	 */
 	
 	@RequestMapping(value = "/viewallsellers", method = RequestMethod.GET)
-	public ModelAndView ans(HttpSession httpSession) {
+	public ModelAndView ViewAllSeller(HttpSession httpSession) {
 		Session session = sessionFactory.openSession();
 		ModelAndView model=new ModelAndView("adminpannel");
 		
@@ -102,6 +102,36 @@ public class AdminController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/delseller", method = RequestMethod.GET)
+	public ModelAndView DelSeller(HttpSession httpSession, @RequestParam("id") String selleremailid) {
+		Session session = sessionFactory.openSession();
+		ModelAndView model;
+		
+		
+		sellerdet = (SellerDet) session.get(SellerDet.class, selleremailid);
+		
+		if(httpSession.getAttribute("SESSION_email")!=null){
+				if(sellerdet.getSellerEmailId().equals(selleremailid)){
+			
+							session.delete(sellerdet);
+							model=new ModelAndView("adminpanel");
+							model.addObject("invalid","seller delete successfully");
+							model.addObject("adminname",(String)httpSession.getAttribute("SESSION_name"));
+			
+							}
+		
+				else{
+							model=new ModelAndView("adminpannel");
+							model.addObject("invalid","no record found");
+							model.addObject("adminname",(String)httpSession.getAttribute("SESSION_name"));
+		                     }
+		}
+		else{
+			model=new ModelAndView("adminlogin");
+			model.addObject("invalid","KINDLY LOGIN FIRST TO CONTINUE");
+		}
 	
+		return model;
+	}
 	
 }
