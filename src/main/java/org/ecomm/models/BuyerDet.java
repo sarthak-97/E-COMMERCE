@@ -12,6 +12,7 @@ private String EmailId;
 private String Name;
 @Lob
 private String Address;
+private int Pincode;
 private String City;
 private String State;
 private String Country;
