@@ -80,4 +80,11 @@ public String getImgUrl() {
 public void setImgUrl(String imgUrl) {
 	ImgUrl = imgUrl;
 }
+public int getPincode() {
+	return Pincode;
+}
+public void setPincode(int pincode) {
+	Pincode = pincode;
+}
+
 }
