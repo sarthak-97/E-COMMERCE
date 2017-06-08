@@ -7,13 +7,14 @@ import javax.persistence.Id;
 public class AdminDet {
 	
 @Id
-private int AdminEmailId;
+private String AdminEmailId;
 private String AdminName;
 private String password;
-public int getAdminEmailId() {
+
+public String getAdminEmailId() {
 	return AdminEmailId;
 }
-public void setAdminEmailId(int adminEmailId) {
+public void setAdminEmailId(String adminEmailId) {
 	AdminEmailId = adminEmailId;
 }
 public String getAdminName() {
