@@ -59,6 +59,12 @@ public class ReviewAndRatingController {
 										item.setItemRating(rating);
 										session.save(item);
 										session.getTransaction().commit();
+										List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
+										
+										
+										model.addObject("items",items);
+										model.addObject("id",itemid);
+										
 										model.addObject("invalid","RATING ADDED SUCCESSFULLY");
 									}
 		 	
@@ -70,6 +76,11 @@ public class ReviewAndRatingController {
 									item.setItemRating(newrating);
 									session.save(item);
 									session.getTransaction().commit();
+									List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
+									
+									
+									model.addObject("items",items);
+									model.addObject("id",itemid);
 									
 									model.addObject("invalid","RATING ADDED SUCCESSFULLY");
 								}
@@ -91,7 +102,7 @@ public class ReviewAndRatingController {
 
 		Session session = sessionFactory.openSession();
 		  session.beginTransaction();
-		
+		ModelAndView model;
 		 if((String)httpSession.getAttribute("SESSION_email")!=null)
 		 {
 			  
@@ -99,14 +110,28 @@ public class ReviewAndRatingController {
 			  
 			  itemreviews= new ItemReviews();
 			  itemreviews.setBuyerEmailId(PostedBy);
-			  
-			  
-			  
+			  itemreviews.setItemId(itemid);
+			  itemreviews.setItemReview(review);
+			  session.save(itemreviews);
+			  session.getTransaction().commit();
+			  model=new ModelAndView("viewitem");
+			  List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
+			  List<ItemReviews> rev=session.createCriteria(ItemReviews.class).list();
+				
+				model.addObject("items",items);
+				model.addObject("reviews",rev);
+				model.addObject("id",itemid);
+			  model.addObject("invalid","review added successfully");
+			
 		 }
 		
+		 else{
+			 model=new ModelAndView("index");
+			 model.addObject("invalid","LOG IN FIRST TO CONTINUE");
+		 }
 		  
 		  
-		  return null;
+		  return model;
 	}
 	
 
