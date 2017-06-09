@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.ecomm.models.AdminDet;
 import org.ecomm.models.ItemsDet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -26,16 +27,17 @@ public class ReviewAndRatingController {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	private ItemsDet item;
 	
 	@RequestMapping(value = "/add_rating", method = RequestMethod.POST)
-	public ModelAndView searchitem(HttpSession httpSession, @RequestParam("rating") int rating) {
+	public ModelAndView searchitem(HttpSession httpSession, @RequestParam("rating") int rating,@RequestParam("id") int itemid) {
 
 		Session session = sessionFactory.openSession();
 		ModelAndView model;
 		if((String)httpSession.getAttribute("SESSION_email")!=null)
 	
 		{	        model=new ModelAndView("viewitem");
-						ItemsDet item= new ItemsDet();
+						item= (ItemsDet) session.get(ItemsDet.class, itemid);
 						int PrevRating,newrating;
 		
 						PrevRating =item.getItemRating();
