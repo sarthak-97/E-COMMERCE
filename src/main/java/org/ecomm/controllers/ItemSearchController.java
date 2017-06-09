@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.ecomm.models.ItemReviews;
 import org.ecomm.models.ItemsDet;
 
 import org.hibernate.Session;
@@ -65,10 +66,11 @@ public class ItemSearchController {
 		Session session = sessionFactory.openSession();
 		
 		List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
-		
+		List<ItemReviews> rev=session.createCriteria(ItemReviews.class).list();
 		ModelAndView model = new ModelAndView("viewitem");
 		model.addObject("items",items);
-		
+		model.addObject("id",itemid);
+		model.addObject("reviews",rev);
 		
 		return model;
 	}
