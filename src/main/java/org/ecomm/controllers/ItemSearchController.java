@@ -5,12 +5,12 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.ecomm.models.ItemsDet;
-import org.ecomm.models.SellerDet;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +38,7 @@ public class ItemSearchController {
 	 */
 	
 	@RequestMapping(value = "/searchitem", method = RequestMethod.POST)
-	public ModelAndView signup(HttpSession httpSession, @RequestParam("keyword") String keyword) {
+	public ModelAndView searchitem(HttpSession httpSession, @RequestParam("keyword") String keyword) {
 
 		Session session = sessionFactory.openSession();
 		
@@ -47,6 +47,28 @@ public class ItemSearchController {
 		ModelAndView model = new ModelAndView("searchresults");
 		model.addObject("items",items);
 		model.addObject("keyword",keyword);
+		
+		return model;
+	}
+	
+	/**
+	 * this controller handles the request for 
+	 * viewing full details of product
+	 * @param httpSession
+	 * @param itemid
+	 * @return
+	 */
+	
+	@RequestMapping(value = "/viewitem", method = RequestMethod.GET)
+	public ModelAndView viewitem(HttpSession httpSession, @RequestParam("itemid") int itemid) {
+
+		Session session = sessionFactory.openSession();
+		
+		List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
+		
+		ModelAndView model = new ModelAndView("viewitem");
+		model.addObject("items",items);
+		
 		
 		return model;
 	}
