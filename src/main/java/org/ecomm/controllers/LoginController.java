@@ -29,7 +29,7 @@ public class LoginController {
 	
 
 	/**
-	 * controller for signup
+	 * controller for signup of Buyer
 	 * @param userdet
 	 * @return
 	 */
@@ -54,7 +54,7 @@ public class LoginController {
 	}
 	
 	/**\
-	 * controller for login process
+	 * controller for login process of Buyer
 	 * @param httpSession
 	 * @param emailid
 	 * @param password
