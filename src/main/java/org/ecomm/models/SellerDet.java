@@ -15,6 +15,7 @@ private String SellerAddress;
 private int SellerPincode;
 @Lob
 private String SellerDetails;
+private String password;
 public String getSellerEmailId() {
 	return SellerEmailId;
 }
@@ -44,6 +45,12 @@ public String getSellerDetails() {
 }
 public void setSellerDetails(String sellerDetails) {
 	SellerDetails = sellerDetails;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
 }
 
 	

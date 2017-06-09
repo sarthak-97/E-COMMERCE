@@ -18,6 +18,7 @@ private int ItemPrice;
 private int ItemRating;
 private String ItemSellerId;
 private String ItemImageUrl;
+
 public int getItemId() {
 	return ItemId;
 }

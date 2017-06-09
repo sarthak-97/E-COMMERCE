@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -140,4 +141,31 @@ public class AdminController {
 		return model;
 	}
 	
+	
+	/**
+	 * this controller is for adding new seller
+	 * by admin
+	 * @param sellerdet
+	 * @return
+	 */
+	
+	
+	@RequestMapping(value = "/addseller", method = RequestMethod.POST)
+	public ModelAndView signup(@ModelAttribute("sellerdet") org.ecomm.models.SellerDet sellerdet) {
+		Session session = sessionFactory.openSession();
+		ModelAndView model = new ModelAndView("adminpannel");
+		if (session.get(SellerDet.class, sellerdet.getSellerEmailId()) == null) {
+			
+			session.beginTransaction();
+			session.save(sellerdet);
+			
+			session.getTransaction().commit();
+			model.addObject("invalid", "Successfully registered, login to proceed!");
+
+		} else
+			model.addObject("invalid", "This email is already registered.");
+		session.close();
+		return model;
+
+	}
 }
