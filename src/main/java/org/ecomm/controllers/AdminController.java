@@ -5,7 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.ecomm.models.AdminDet;
-import org.ecomm.models.BuyerDet;
+
 import org.ecomm.models.SellerDet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,7 +32,7 @@ public class AdminController {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	private BuyerDet buyerdet;
+	
 	private AdminDet admindet;
 	private SellerDet sellerdet;
 	

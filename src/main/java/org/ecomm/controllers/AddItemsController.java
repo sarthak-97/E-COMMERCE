@@ -1,7 +1,7 @@
 package org.ecomm.controllers;
 
 import org.ecomm.models.ItemsDet;
-import org.ecomm.models.SellerDet;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class AddItemsController {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
-	private ItemsDet itemsdet;
+	
 	
 	/**
 	 * controller for adding items in database by sellers
