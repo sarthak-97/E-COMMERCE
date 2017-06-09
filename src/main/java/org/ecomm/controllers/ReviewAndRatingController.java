@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.ecomm.models.AdminDet;
+import org.ecomm.models.ItemReviews;
 import org.ecomm.models.ItemsDet;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -28,9 +29,19 @@ public class ReviewAndRatingController {
 	@Autowired
 	private SessionFactory sessionFactory;
 	private ItemsDet item;
+	private ItemReviews itemreviews;
+	
+	
+	/**
+	 * add ratings to the products
+	 * @param httpSession
+	 * @param rating
+	 * @param itemid
+	 * @return
+	 */
 	
 	@RequestMapping(value = "/add_rating", method = RequestMethod.POST)
-	public ModelAndView searchitem(HttpSession httpSession, @RequestParam("rating") int rating,@RequestParam("id") int itemid) {
+	public ModelAndView addrating(HttpSession httpSession, @RequestParam("rating") int rating,@RequestParam("id") int itemid) {
 
 		Session session = sessionFactory.openSession();
 		  session.beginTransaction();
@@ -73,5 +84,30 @@ public class ReviewAndRatingController {
 		
 		return model;
 	}
+	
+	
+	@RequestMapping(value = "/add_reviews", method = RequestMethod.POST)
+	public ModelAndView addreviews(HttpSession httpSession, @RequestParam("review") String review,@RequestParam("id") int itemid) {
+
+		Session session = sessionFactory.openSession();
+		  session.beginTransaction();
+		
+		 if((String)httpSession.getAttribute("SESSION_email")!=null)
+		 {
+			  
+			  String PostedBy=(String)httpSession.getAttribute("SESSION_email");
+			  
+			  itemreviews= new ItemReviews();
+			  itemreviews.setBuyerEmailId(PostedBy);
+			  
+			  
+			  
+		 }
+		
+		  
+		  
+		  return null;
+	}
+	
 
 }
