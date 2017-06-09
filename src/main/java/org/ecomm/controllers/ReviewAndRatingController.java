@@ -33,6 +33,7 @@ public class ReviewAndRatingController {
 	public ModelAndView searchitem(HttpSession httpSession, @RequestParam("rating") int rating,@RequestParam("id") int itemid) {
 
 		Session session = sessionFactory.openSession();
+		  session.beginTransaction();
 		ModelAndView model;
 		if((String)httpSession.getAttribute("SESSION_email")!=null)
 	
@@ -45,6 +46,8 @@ public class ReviewAndRatingController {
 								if(PrevRating==0){
 		 		
 										item.setItemRating(rating);
+										session.save(item);
+										session.getTransaction().commit();
 										model.addObject("invalid","RATING ADDED SUCCESSFULLY");
 									}
 		 	
@@ -54,6 +57,9 @@ public class ReviewAndRatingController {
 									newrating=Math.abs(c);
 									System.out.println(newrating);
 									item.setItemRating(newrating);
+									session.save(item);
+									session.getTransaction().commit();
+									
 									model.addObject("invalid","RATING ADDED SUCCESSFULLY");
 								}
 		
