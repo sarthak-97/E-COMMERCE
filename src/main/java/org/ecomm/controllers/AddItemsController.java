@@ -34,7 +34,7 @@ public class AddItemsController {
 	@RequestMapping(value = "/additem", method = RequestMethod.POST)
 	public ModelAndView signup(@ModelAttribute("itemsdet") org.ecomm.models.ItemsDet itemsdet) {
 		Session session = sessionFactory.openSession();
-		ModelAndView model = new ModelAndView("selleradmin");
+		ModelAndView model = new ModelAndView("sellerpannel");
 		if (session.get(ItemsDet.class, itemsdet.getItemId()) == null) {
 			
 			session.beginTransaction();

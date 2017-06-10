@@ -11,7 +11,8 @@ public class MainController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView landingPage(HttpSession httpSession){
 		
-		return null;
+		ModelAndView model=new ModelAndView("index");
+		return model;
 		
 	}
 
