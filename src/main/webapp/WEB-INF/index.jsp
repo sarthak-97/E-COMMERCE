@@ -2,30 +2,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>HOMEPAGE</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+  <title>INDEX</title>
 
-  <!-- CSS  -->
+   <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<!-- Compiled and minified JavaScript -->
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../../dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body >
   <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo"><span style="font-family: "Comic Sans MS";">E-COMMERCE</span></a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact Us</a></li>
+    <div class="nav-wrapper container" style="color:"white";">
+      <a id="logo-container" href="#" class="brand-logo"><span style="font-family: "Comic Sans MS";"><font color="white">E-COMMERCE</font></span></a>
+      
+      <ul class="right hide-on-med-and-down " >
+       
+        <li><a href="#"><font color="white">Login</font></a></li>
+        <li><a href="#"><font color="white">About</font></a></li>
+        <li><a href="#"><font color="white">Contact Us</font></a></li>
+        <li><a href="#"><font color="white">Login</font></a></li>
+        <li><a href="#"><font color="white">About</font></a></li>
+        <li><a href="#"><font color="white">Contact Us</font></a></li>   
       </ul>
+       
+      
+      
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="#"><font color="white">Login</font></a></li>
+        <li><a href="#"><font color="white">About</font></a></li>
+        <li><a href="#"><font color="white">Contact Us</font></a></li>
       </ul>
+    
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
@@ -104,7 +122,7 @@
     </div>
   </div>
 
-  <footer class="page-footer orange">
+  <footer class="page-footer light-blue lighten">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -135,16 +153,21 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      Made by Materialize
       </div>
     </div>
   </footer>
 
 
   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../../bin/materialize.js"></script>
+ 
   <script src="js/init.js"></script>
-
+<script>
+$(document).ready(function(){
+    $('.slider').slider();
+  });
+      
+     
+</script>
   </body>
 </html>
