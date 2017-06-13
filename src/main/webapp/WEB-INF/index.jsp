@@ -21,23 +21,29 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body >
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container" style="color:"white";">
+  <nav class="nav-extended light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container " style="color:"white";">
       <a id="logo-container" href="#" class="brand-logo"><span style="font-family: "Comic Sans MS";"><font color="white">E-COMMERCE</font></span></a>
       
-      <ul class="right hide-on-med-and-down " >
-       
+      <ul class=" hide-on-med-and-down right " >
+       <li> <div class="center row">
+                          <div class="col s12 " >
+                            <div class="row" id="topbarsearch">
+                              <div class="input-field col s6 s12 white-text">
+                                <form action="searchitem" method="post"></form>
+                                <i class="white-text material-icons prefix">search</i>
+                                <input type="text" placeholder="search" id="autocomplete-input" class="autocomplete white-text" name="keyword">
+                                </div>
+                              </div>
+                            </div>
+                          </div>  
+       </li>
         <li><a href="#"><font color="white">Login</font></a></li>
         <li><a href="#"><font color="white">About</font></a></li>
         <li><a href="#"><font color="white">Contact Us</font></a></li>
-        <li><a href="#"><font color="white">Login</font></a></li>
-        <li><a href="#"><font color="white">About</font></a></li>
-        <li><a href="#"><font color="white">Contact Us</font></a></li>   
+      
       </ul>
-       
       
-      
-
       <ul id="nav-mobile" class="side-nav">
         <li><a href="#"><font color="white">Login</font></a></li>
         <li><a href="#"><font color="white">About</font></a></li>
@@ -46,8 +52,17 @@
     
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
+    
+         <div class="nav-content container">
+      		
+                   	
+      	 </div>
+ 
   </nav>
-  <div class="slider">
+  
+
+      
+  <div class="slider" style="display:block">
     <ul class="slides">
       <li>
         <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
@@ -122,7 +137,7 @@
     </div>
   </div>
 
-  <footer class="page-footer light-blue lighten">
+  <footer class="page-footer light-blue lighten-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -166,8 +181,17 @@
 $(document).ready(function(){
     $('.slider').slider();
   });
+$('.slider').slider('pause');
+//Start slider
+$('.slider').slider('start');
+//Next slide
+$('.slider').slider('next');
+//Previous slide
+$('.slider').slider('prev');
+   
       
      
 </script>
+
   </body>
 </html>
