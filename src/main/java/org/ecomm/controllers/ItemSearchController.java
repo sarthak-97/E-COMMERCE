@@ -64,6 +64,8 @@ public class ItemSearchController {
 	public ModelAndView viewitem(HttpSession httpSession, @RequestParam("itemid") int itemid) {
 
 		Session session = sessionFactory.openSession();
+		ItemsDet item=new ItemsDet();
+		String itemName=item.getItemName();
 		
 		List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
 		List<ItemReviews> rev=session.createCriteria(ItemReviews.class).list();
@@ -71,6 +73,7 @@ public class ItemSearchController {
 		model.addObject("items",items);
 		model.addObject("id",itemid);
 		model.addObject("reviews",rev);
+		model.addObject("itemName",itemName);
 		
 		return model;
 	}

@@ -96,6 +96,13 @@ public class ReviewAndRatingController {
 		return model;
 	}
 	
+	/**
+	 * controller for adding reviews
+	 * @param httpSession
+	 * @param review
+	 * @param itemid
+	 * @return
+	 */
 	
 	@RequestMapping(value = "/add_reviews", method = RequestMethod.POST)
 	public ModelAndView addreviews(HttpSession httpSession, @RequestParam("review") String review,@RequestParam("id") int itemid) {
