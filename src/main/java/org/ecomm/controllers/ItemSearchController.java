@@ -43,6 +43,13 @@ public class ItemSearchController {
 
 		Session session = sessionFactory.openSession();
 		
+		/*
+		 * 
+		 * space left for using JAX-RS API for optimised search result
+		 * 
+		 * 
+		 */
+		
 		List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
 		
 		ModelAndView model = new ModelAndView("searchresults");
