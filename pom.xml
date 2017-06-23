@@ -186,8 +186,25 @@
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 		</dependency>
-
-
+            <!-- Dependencies for JAX-RS   -->
+            <!-- to be uncommented after the class of JAX-RS is written in java folder -->
+            
+     <!--     https://mvnrepository.com/artifact/org.glassfish.jersey.bundles/jaxrs-ri
+			<dependency>
+    		<groupId>org.glassfish.jersey.bundles</groupId>
+   			 <artifactId>jaxrs-ri</artifactId>
+   			 <version>2.16</version>
+			</dependency>
+         
+          
+          https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-moxy
+					<dependency>
+  					  <groupId>org.glassfish.jersey.media</groupId>
+  					  <artifactId>jersey-media-moxy</artifactId>
+   						 <version>2.16</version>
+					</dependency>
+           -->
+          
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
