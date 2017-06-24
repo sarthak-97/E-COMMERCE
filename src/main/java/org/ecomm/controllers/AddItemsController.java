@@ -37,6 +37,8 @@ public class AddItemsController {
 		ModelAndView model = new ModelAndView("sellerpannel");
 		if (session.get(ItemsDet.class, itemsdet.getItemId()) == null) {
 			
+			//hash function method to be called here for setting hash id
+	              		
 			session.beginTransaction();
 			session.save(itemsdet);
 			

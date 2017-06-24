@@ -9,6 +9,7 @@ public class ItemsDet {
 
 @Id	
 private int ItemId;	
+private String HashId;
 private String ItemName;
 private String ItemCategory;
 private String ItemBrandName;
@@ -73,6 +74,12 @@ public String getItemImageUrl() {
 }
 public void setItemImageUrl(String itemImageUrl) {
 	ItemImageUrl = itemImageUrl;
+}
+public String getHashId() {
+	return HashId;
+}
+public void setHashId(String hashId) {
+	HashId = hashId;
 }
 
 	
