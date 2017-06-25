@@ -94,4 +94,21 @@ public class LoginController {
 		return model;
 	}
 	
+	/**
+	 * 
+	 * controller for session logout
+	 * 
+	 * @author sarthak
+	 * @param httpSession
+	 * @return
+	 */
+
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView LogoutController(HttpSession httpSession) {
+		httpSession.invalidate();
+		ModelAndView model = new ModelAndView("index");
+		model.addObject("invalid", "successfully logged out");
+		return model;
+	}
+	
 }
