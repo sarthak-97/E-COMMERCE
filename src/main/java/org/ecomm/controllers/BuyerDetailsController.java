@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -56,6 +57,37 @@ public class BuyerDetailsController {
 			model.addObject("age",buyerdet.getAge());  //*****************have to be made readonly***********************
 			model.addObject("password",buyerdet.getPassword());//**************have to use password text field *************
 			model.addObject("img",buyerdet.getImgUrl());
+			
+			
+			
+			
+			
+			
+			 
+		}
+		else{
+			model=new ModelAndView("index");
+			model.addObject("invalid","Log in first to continue");
+		}
+		return model;
+	}
+	
+	
+	@RequestMapping(value="/updateprofile",method=RequestMethod.POST) 	
+	public ModelAndView updateprofile(HttpSession httpSession,@ModelAttribute("buyerdet") org.ecomm.models.BuyerDet buyerdet){
+		Session session = sessionFactory.openSession();
+		
+		
+		String emailid=(String)httpSession.getAttribute("SESSION_email");
+		ModelAndView model;
+		if(emailid!=null){
+			
+	         session.beginTransaction();
+	         session.update(buyerdet);
+	         session.getTransaction().commit();		
+			
+			  model=new ModelAndView("index");
+			  model.addObject("invalid","profile updated successfully");
 			
 			
 			
