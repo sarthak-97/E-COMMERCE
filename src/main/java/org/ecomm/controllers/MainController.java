@@ -13,6 +13,12 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+/**
+ * this is the main controller
+ * @author sarthak-pc
+ *
+ */
+
 @RestController
 public class MainController {
 	
