@@ -27,8 +27,14 @@ public class MainController {
 
 		Session session = sessionFactory.openSession();
 		List<ItemsDet> items=session.createCriteria(ItemsDet.class).list();
+		
+		
+		 if(httpSession.getAttribute("SESSION_email")!=null){
+			 model.addObject("buyername",httpSession.getAttribute("SESSION_name"));
+		 }
 		 
-		Collections.shuffle(items);
+		 
+		Collections.shuffle(items);              //for shuffling the items
 		model.addObject("items",items);
 		
 		
