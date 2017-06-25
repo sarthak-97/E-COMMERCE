@@ -73,7 +73,7 @@ public class PurchaseController {
  				    model.addObject("price","price");
  				    model.addObject("qty",qty);
  				    model.addObject("imgurl",img);
- 				    model.addObject("buyername",buyername);
+ 				    model.addObject("buyername",buyername);	
 				}
 	
 			else
