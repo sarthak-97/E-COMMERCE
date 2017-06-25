@@ -57,6 +57,7 @@ public class PurchaseController {
 			if(httpsession.getAttribute("SESSION_email")!=null){
 			        
 				String emailid=(String)httpsession.getAttribute("SESSION_email");
+				String buyername=(String)httpsession.getAttribute("SESSION_name");
 					model=new ModelAndView("buy");        // temporary name for this view   and can be change afterwards
 					                                     
 					//buyerdet = (BuyerDet) session.get(BuyerDet.class, emailid);
@@ -72,6 +73,7 @@ public class PurchaseController {
  				    model.addObject("price","price");
  				    model.addObject("qty",qty);
  				    model.addObject("imgurl",img);
+ 				    model.addObject("buyername",buyername);
 				}
 	
 			else
