@@ -149,11 +149,11 @@
 			<table class=" bordered highlight ">
 			    <tr>
 			    	<td rowspan="3"><a href="/viewitem?itemid=${itemslist.ItemId}"><img src="${itemslist.ItemImageUrl}" ></a></td>
-			    	<td><c:out value=" item brand name -->>${itemslist.ItemBrandName }" escapeXml="false"/></td>
+			    	<td><c:out value=" ${itemslist.ItemBrandName }" escapeXml="false"/></td>
 			   </tr>
 			   <tr>
 			   		<td></td>
-			   		<td> <c:out	value=" item price -->>${itemslist.ItemPrice }" escapeXml="false"/></td>
+			   		<td> <c:out	value=" ${itemslist.ItemPrice }" escapeXml="false"/></td>
 			   		
 			    </tr>
 			    
