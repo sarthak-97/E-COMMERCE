@@ -1,4 +1,9 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,8 +138,32 @@
     <br><br>
 
     <div class="section">
+  
+           <%
+		        int i = 1;
+			%>
+		
 
-    </div>
+		<c:forEach var="itemlist" items="${items}" begin="0" end="4">
+		
+			<table class=" bordered highlight ">
+			    <tr>
+			    	<td rowspan="3"><a href="/viewitem?itemid=${itemslist.ItemId}"><img src="${itemslist.ItemImageUrl}" ></a></td>
+			    	<td><c:out value=" item brand name -->>${itemslist.ItemBrandName }" escapeXml="false"/></td>
+			   </tr>
+			   <tr>
+			   		<td></td>
+			   		<td> <c:out	value=" item price -->>${itemslist.ItemPrice }" escapeXml="false"/></td>
+			   		
+			    </tr>
+			    
+				<%
+						i = i + 1;
+					%>
+				 </table>    
+				</c:forEach>
+			
+		</div>
   </div>
 
   <footer class="page-footer light-blue lighten-1">
