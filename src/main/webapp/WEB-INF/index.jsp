@@ -144,7 +144,7 @@
 			%>
 		
 
-		<c:forEach var="itemlist" items="${items}" begin="0" end="4">
+		<c:forEach var="itemslist" items="${items}" begin="0" end="4">
 		
 			<table class=" bordered highlight ">
 			    <tr>

@@ -63,7 +63,7 @@
 			<table class=" bordered highlight ">
 
 
-				<c:forEach var="itemlist" items="${items}">
+				<c:forEach var="itemslist" items="${items}">
 			
 			 <c:set var = "itemid" scope = "session" value = "${itemid}"/>
 			 <c:set var = "itemsid" scope = "session" value = "${itemslist.ItemId}"/>
