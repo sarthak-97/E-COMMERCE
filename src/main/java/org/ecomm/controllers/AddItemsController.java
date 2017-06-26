@@ -2,8 +2,13 @@ package org.ecomm.controllers;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.InputStream;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.ecomm.models.ItemsDet;
@@ -40,8 +45,8 @@ public class AddItemsController {
 	 * @return
 	 */
 	
-	@RequestMapping(value = "/additem", method = RequestMethod.POST)
-	public ModelAndView signup(@ModelAttribute("itemsdet") org.ecomm.models.ItemsDet itemsdet,@RequestParam("file") MultipartFile file) {
+	//@RequestMapping(value = "/additem", method = RequestMethod.POST)
+	/*public ModelAndView signup(@ModelAttribute("itemsdet") org.ecomm.models.ItemsDet itemsdet,@RequestParam("file") MultipartFile file) {
 		Session session = sessionFactory.openSession();
 		ModelAndView model;
 		if (session.get(ItemsDet.class, itemsdet.getItemId()) == null) {
@@ -71,34 +76,68 @@ public class AddItemsController {
 	}
 	
 	
-	/**
+	*//**
 	 * this controller adds up new images to database
 	 * @param file
 	 * @return
-	 */
+	 *//*
 	
 	@RequestMapping(value="/add-item-image", method = RequestMethod.POST)
-	public ModelAndView additemimage(@RequestParam("file") MultipartFile file)
-	{ 
+	public ModelAndView additemimage(@RequestParam("file") MultipartFile file,HttpServletRequest request) 	{ 
 		
 		//for extracting file name
 		
-		/*
-		private String extractFileName(Part part) {
-			 for (String content : part.getHeader("content-disposition").split(";")) {
-			        if (content.trim().startsWith("filename")) {
-			            return content.substring(
-			                    content.indexOf('=') + 1).trim().replace("\"", "");
-			        }
-			       // System.out.println(content);
-			    }         
-			    return null;
-		}*/
+       
+        for (Part part : request.getParts("img1")) {
+       String fileName = extractFileName(part);
+       
+
+  //you can change this part acc. to your requirements
+    
+
+//file name of the upload file is included in content-disposition header like this:
+//form-data; name="dataFile"; filename="PHOTO.JPG"
+
+
+InputStream filecontent = null;
+
+try { 
+
+filecontent = part.getInputStream();
+
+System.out.println(fileName);
+}
+catch(Exception e)
+{
+
+}
+
+
 		
 	String relativeWebPath = "/avatars";
 	String absoluteFilePath = context.getRealPath(relativeWebPath);
-	File uploadedFile = new File(absoluteFilePath, "your file name");
+	File uploadedFile = new File(absoluteFilePath, fileName);
+	
+	
 		return null;
+	 
+	  }
+    
+	}   
+*/	
+
+	private String extractFileName(Part part) {
+		// TODO Auto-generated method stub
+		
+		 for (String content : part.getHeader("content-disposition").split(";")) {
+		        if (content.trim().startsWith("filename")) {
+		            return content.substring(
+		                    content.indexOf('=') + 1).trim().replace("\"", "");
+		        }
+		       // System.out.println(content);
+		    }         
+		    return null;
+		
 	}
 	  
 }
