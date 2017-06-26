@@ -18,7 +18,7 @@ private String ItemDescription;
 private int ItemPrice;
 private int ItemRating;
 private String ItemSellerId;
-private String ItemImageUrl;
+
 
 
 public int getItemId() {
@@ -69,12 +69,7 @@ public String getItemSellerId() {
 public void setItemSellerId(String itemSellerId) {
 	ItemSellerId = itemSellerId;
 }
-public String getItemImageUrl() {
-	return ItemImageUrl;
-}
-public void setItemImageUrl(String itemImageUrl) {
-	ItemImageUrl = itemImageUrl;
-}
+
 public String getHashId() {
 	return HashId;
 }

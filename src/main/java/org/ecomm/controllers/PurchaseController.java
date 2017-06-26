@@ -66,13 +66,13 @@ public class PurchaseController {
 					String itemName=itemsdet.getItemName();
 					String brandName=itemsdet.getItemBrandName();
 					int    price=itemsdet.getItemPrice()*qty;
-					String img=itemsdet.getItemImageUrl();
+					//String img=itemsdet.getItemImageUrl();
 		            
  				    model.addObject("itemname",itemName);
  				    model.addObject("brandname",brandName);
  				    model.addObject("price","price");
  				    model.addObject("qty",qty);
- 				    model.addObject("imgurl",img);
+ 				   // model.addObject("imgurl",img);           //to be changed to image url model class
  				    model.addObject("buyername",buyername);	
 				}
 	
