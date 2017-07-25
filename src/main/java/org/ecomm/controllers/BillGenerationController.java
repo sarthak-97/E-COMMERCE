@@ -72,7 +72,7 @@ public ModelAndView Bill(HttpSession httpsession){
             String bodyText)
 throws MessagingException {
 Properties props = new Properties();
-javax.mail.Session session = Session.getDefaultInstance(props, null);
+javax.mail.Session session = javax.mail.Session.getDefaultInstance(props, null);
 
 MimeMessage email = new MimeMessage(session);
 
