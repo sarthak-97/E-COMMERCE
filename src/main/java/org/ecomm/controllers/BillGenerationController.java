@@ -34,7 +34,7 @@ public class BillGenerationController {
 	private ItemsDet itemsdet;
 	
 	@RequestMapping(value = "/bill", method = RequestMethod.POST)
-public ModelAndView Bill(HttpSession httpsession){
+public ModelAndView Bill(HttpSession httpsession) throws Throwable{
 		
 		ModelAndView model;
 		Session session = sessionFactory.openSession();
@@ -48,7 +48,7 @@ public ModelAndView Bill(HttpSession httpsession){
 				String buyername=(String)httpsession.getAttribute("SESSION_name");
 					model=new ModelAndView("buy");        // temporary name for this view   and can be change afterwards
 					                                     
-					//buyerdet = (BuyerDet) session.get(BuyerDet.class, emailid);
+					buyerdet = (BuyerDet) session.get(BuyerDet.class, emailid);
 					itemsdet = (ItemsDet) session.get(ItemsDet.class, itemId);
 					quantity=itemsdet.getQuantity();
 					itemsdet.setQuantity(quantity-qty);
@@ -63,6 +63,9 @@ public ModelAndView Bill(HttpSession httpsession){
  				    model.addObject("qty",qty);
  				   // model.addObject("imgurl",img);           //to be changed to image url model class
  				    model.addObject("buyername",buyername);	
+ 				    createEmail("","","","");
+ 				   createMessageWithEmail(null);
+ 				  sendMessage(null,"",null);
 				return model;
 }
 
