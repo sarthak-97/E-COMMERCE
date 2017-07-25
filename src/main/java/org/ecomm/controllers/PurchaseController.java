@@ -62,7 +62,8 @@ public class PurchaseController {
 					                                     
 					//buyerdet = (BuyerDet) session.get(BuyerDet.class, emailid);
 					itemsdet = (ItemsDet) session.get(ItemsDet.class, itemid);
-					
+					httpsession.setAttribute("SESSION_item",itemid);
+					httpsession.setAttribute("SESSION_qty", qty);
 					String itemName=itemsdet.getItemName();
 					String brandName=itemsdet.getItemBrandName();
 					int    price=itemsdet.getItemPrice()*qty;

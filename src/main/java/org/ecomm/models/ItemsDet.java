@@ -18,9 +18,15 @@ private String ItemDescription;
 private int ItemPrice;
 private int ItemRating;
 private String ItemSellerId;
+private int Quantity;
 
 
-
+public int getQuantity() {
+	return Quantity;
+}
+public void setQuantity(int quantity) {
+	Quantity = quantity;
+}
 public int getItemId() {
 	return ItemId;
 }
