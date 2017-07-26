@@ -87,6 +87,16 @@
 			  
 			    <c:out
 									value=" item rating -->>${itemslist.ItemRating }" escapeXml="false"/>  
+									
+									<!--
+									
+									
+									          here reviews have to be added
+									         by parsing the list through jstl
+									
+									
+									
+									 -->
 			    </div>
    
 				
