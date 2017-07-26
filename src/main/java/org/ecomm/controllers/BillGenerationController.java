@@ -24,6 +24,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64;
 import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.model.Message;
+/**
+ * this controller generates bill for products
+ * @author divya
+ *
+ */
 @Controller
 public class BillGenerationController {
 	
