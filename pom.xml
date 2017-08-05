@@ -114,6 +114,13 @@
 			<artifactId>spring-websocket</artifactId>
 			<version>4.0.4.RELEASE</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+			<dependency>
+   			 <groupId>com.itextpdf</groupId>
+   			 <artifactId>itextpdf</artifactId>
+   			 <version>5.0.6</version>
+			</dependency>
+		
 		<dependency>
 			<groupId>commons-logging</groupId>
 			<artifactId>commons-logging</artifactId>
